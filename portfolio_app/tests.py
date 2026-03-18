@@ -1,5 +1,6 @@
 from django.test import TestCase
-from .models import Project
+from django.urls import reverse
+from portfolio_app.models import Project
 
 class ProjectModelTest(TestCase):
 
@@ -11,3 +12,12 @@ class ProjectModelTest(TestCase):
         )
 
         self.assertEqual(project.title, "Projeto teste")
+
+
+class ViewTest(TestCase):
+
+    def test_home_view(self):
+        response = self.client.get(reverse('home'))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Hello World!")
