@@ -3,5 +3,5 @@ from django.urls import path
 from portfolio_app.views import post_view
 
 urlpatterns = [
-    path('home/', post_view, name='home'),
+    path('home/', post_view, name='home'), path('admin/', admin.site.urls)
 ]
