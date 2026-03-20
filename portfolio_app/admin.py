@@ -1,4 +1,10 @@
 from django.contrib import admin
-from .models import Project
+from .models import Post
 
-admin.site.register(Project)
+class PostAdmin(admin.ModelAdmin):
+    list_display = ('title', 'slug', 'description','link')
+    search_fields = ('title', 'description')
+    prepopulated_fields = {'slug': ('title',)}
+
+
+admin.site.register(Post, PostAdmin)
