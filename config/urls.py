@@ -1,7 +1,7 @@
 from django.contrib import admin
-from django.urls import path
-from portfolio_app.views import post_view
+from django.urls import path, include
 
 urlpatterns = [
-    path('home/', post_view, name='home'), path('admin/', admin.site.urls)
+    path('', include('portfolio_app.urls')), 
+    path('admin/', admin.site.urls)
 ]
